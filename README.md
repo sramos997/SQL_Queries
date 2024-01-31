@@ -6,3 +6,5 @@ The   Rockbuster   Stealth   Management   Board   has   asked   a   series   of 
 ● Which   countries   are   Rockbuster   customers   based   in?   
 ● Where   are   customers   with   a   high   lifetime   value   based?   
 ● Do   sales   figures   vary   between   geographic   regions?  
+
+https://public.tableau.com/app/profile/samantha.ramos1669/viz/Rockbuster_17067334110600/3_10#1
