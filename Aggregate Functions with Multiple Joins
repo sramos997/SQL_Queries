@@ -1,0 +1,12 @@
+##Find the revenue and customer count for each country
+
+SELECT D.country, 
+COUNT(Distinct A.customer_id) AS customers, SUM(amount) AS revenue
+FROM customer A
+INNER JOIN address B ON A.address_id = B.address_id
+INNER JOIN city C ON B.city_id = C.city_id
+INNER JOIN country D ON C.country_ID = D.country_ID
+INNER JOIN rental E ON A.customer_ID = E.customer_ID
+INNER JOIN payment F ON E.rental_ID = F.rental_ID
+GROUP BY country
+ORDER BY customers DESC
