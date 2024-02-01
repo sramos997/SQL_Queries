@@ -1,0 +1,21 @@
+##Find the movies with the top 5 revenue
+
+SELECT D.film_ID, title, SUM(amount) AS total_amount
+FROM payment A
+INNER JOIN rental B ON A.rental_ID = B.rental_ID
+INNER JOIN inventory C ON B.inventory_ID = C.inventory_ID
+INNER JOIN film D ON C.film_ID = D.film_ID
+GROUP BY D.film_ID
+ORDER BY Total_Payment DESC
+LIMIT 5
+
+##Find the movies with the bottom 5 revenue
+
+SELECT title, D.film_ID, SUM(amount) AS total_amount
+FROM payment A
+INNER JOIN rental B ON A.rental_ID = B.rental_ID
+INNER JOIN inventory C ON B.inventory_ID = C.inventory_ID
+INNER JOIN film D ON C.film_ID = D.film_ID
+GROUP BY D.film_ID
+ORDER BY total_amount ASC
+LIMIT 5
