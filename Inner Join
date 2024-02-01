@@ -1,0 +1,22 @@
+##Find the most popular genre of film
+
+SELECT name AS genre,
+SUM(amount) AS revenue
+FROM payment A
+INNER JOIN rental B on A.rental_ID = B.rental_ID
+INNER JOIN inventory C on B.inventory_ID = C.inventory_ID
+INNER JOIN film D on C.film_ID = D.film_ID 
+INNER JOIN film_category E on D.film_ID = E.film_ID
+INNER JOIN category F on E.category_ID = F.category_ID
+GROUP BY name
+ORDER BY revenue DESC;
+
+##Find the most popular rating of film
+
+SELECT rating, COUNT(rental_id) as rental
+FROM film A
+INNER JOIN inventory B ON A.film_id = B.film_id
+INNER JOIN rental C ON B.inventory_id = C.inventory_id
+GROUP BY rating
+ORDER BY rental DESC
+
